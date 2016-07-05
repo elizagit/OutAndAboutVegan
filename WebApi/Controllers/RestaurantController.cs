@@ -84,15 +84,15 @@ namespace WebApi.Controllers
             }
         }
 
-        // DELETE api/Restaurant/5
-        public HttpResponseMessage DeleteRestaurant(int id)
+        // DELETE api/Restaurant/RestaurantName
+        public HttpResponseMessage DeleteRestaurant(int RestaurantID )
         {
-            Restaurant restaurant = db.Restaurants.Find(id);
+           Restaurant restaurant = db.Restaurants.Find(RestaurantID);
             if (restaurant == null)
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound);
             }
-
+           
             db.Restaurants.Remove(restaurant);
 
             try
